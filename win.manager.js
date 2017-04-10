@@ -202,7 +202,19 @@ var winManager = {
 	}
 };
 
-// Функція для парсингу темплейтів. Такий собі js-шаблонізатор
+/**
+ * Функція для парсингу темплейтів. Такий собі js-шаблонізатор
+ * Example:
+ * 	var template = '<img src="{imgLink}" width="{iW}" height="{iH}" alt="{description}" />';
+ *  var data = {
+ * 		imgLink: 'https://mysite.com/image.jpg',
+ * 		iW: 100,
+ * 		iH: 100,
+ * 		description: 'My site logo'
+ * 	};
+ *  var imgHTML = template.supplant(data); 
+ *  the result is: <img src="https://mysite.com/image.jpg" width="100" height="100" alt="My site logo" />
+ */ 
 String.prototype.supplant = function(o) {
     return this.replace(/{([^{}]*)}/g,
         function(a, b) {
